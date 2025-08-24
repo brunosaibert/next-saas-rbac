@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -55,7 +55,7 @@ enum AccountProvider {
 model Account {
   id                String          @id @default(uuid())
   provider          AccountProvider
-  providerAccountId String          @unique @map("account_provider_id")
+  providerAccountId String          @unique @map("provider_account_id")
 
   user   User   @relation(fields: [userId], references: [id])
   userId String @map("user_id")
@@ -76,7 +76,7 @@ model Invite {
   role      Role
   createdAt DateTime @default(now()) @map("created_at")
 
-  autor  User?   @relation(fields: [userId], references: [id])
+  author User?   @relation(fields: [userId], references: [id])
   userId String? @map("user_id")
 
   organization   Organization @relation(fields: [organizationId], references: [id])
@@ -111,8 +111,8 @@ model Organization {
   createdAt                 DateTime @default(now()) @map("created_at")
   updatedAt                 DateTime @updatedAt @map("updated_at")
 
-  owner  User   @relation(fields: [userId], references: [id])
-  userId String @map("user_id")
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
 
   invites  Invite[]
   members  Member[]
@@ -133,8 +133,8 @@ model Project {
   organization   Organization @relation(fields: [organizationId], references: [id])
   organizationId String       @map("organization_id")
 
-  owner  User   @relation(fields: [userId], references: [id])
-  userId String @map("user_id")
+  owner   User   @relation(fields: [ownerId], references: [id])
+  ownerId String @map("owner_id")
 
   @@map("projects")
 }
