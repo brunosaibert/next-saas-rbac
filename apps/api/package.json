@@ -40,6 +40,9 @@
   "eslintConfig": {
     "extends": [
       "@saas/eslint-config/node.cjs"
+    ],
+    "ignorePatterns": [
+      "package.json"
     ]
   }
 }

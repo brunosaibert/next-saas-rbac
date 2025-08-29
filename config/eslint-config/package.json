@@ -10,12 +10,16 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@saas/prettier": "*",
+    "@stylistic/eslint-plugin": "^5.2.3",
     "eslint-plugin-simple-import-sort": "^12.1.1"
   },
   "prettier": "@saas/prettier",
   "eslintConfig": {
     "extends": [
       "./base.cjs"
+    ],
+    "ignorePatterns": [
+      "package.json"
     ]
   }
 }
