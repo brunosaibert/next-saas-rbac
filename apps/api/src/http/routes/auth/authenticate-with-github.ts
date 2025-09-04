@@ -67,8 +67,6 @@ export async function authenticateWithGithub(app: FastifyInstance) {
 
       const githubUserData = await githubUserResponse.json()
 
-      console.log(githubUserData)
-
       const {
         id: githubId,
         avatar_url: avatarUrl,

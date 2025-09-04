@@ -13,15 +13,16 @@ import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 
 import { signInWithGithub } from '../actions'
-import { signInWithEmailAndPassword } from './actions'
+import { signUpAction } from './actions'
 
-export function SignInForm() {
+export function SignUpForm() {
   const [{ success, message, errors, payload }, formAction, isPending] =
-    useActionState(signInWithEmailAndPassword, {
+    useActionState(signUpAction, {
       success: false,
       message: null,
       errors: null,
       payload: {
+        name: '',
         email: '',
         password: '',
       },
@@ -36,6 +37,15 @@ export function SignInForm() {
           <AlertDescription>{message}</AlertDescription>
         </Alert>
       )}
+      <div className="space-y-1">
+        <Label htmlFor="name">Name</Label>
+        <Input defaultValue={payload?.name} id="name" name="name" />
+        {errors?.name && (
+          <p className="text-xs font-medium text-red-500 dark:text-red-400">
+            {errors.name[0]}
+          </p>
+        )}
+      </div>
       <div className="space-y-1">
         <Label htmlFor="email">E-mail</Label>
         <Input
@@ -63,22 +73,29 @@ export function SignInForm() {
             {errors.password[0]}
           </p>
         )}
-        <Link
-          className="text-foreground text-xs font-medium hover:underline"
-          href="/auth/forgot-password"
-        >
-          Forgot your password?
-        </Link>
+      </div>
+      <div className="space-y-1">
+        <Label htmlFor="passwordConfirmation">Confirm your password</Label>
+        <Input
+          id="passwordConfirmation"
+          name="passwordConfirmation"
+          type="password"
+        />
+        {errors?.passwordConfirmation && (
+          <p className="text-xs font-medium text-red-500 dark:text-red-400">
+            {errors.passwordConfirmation[0]}
+          </p>
+        )}
       </div>
       <Button className="w-full" disabled={isPending} type="submit">
         {isPending ? (
           <Loader2 className="size-4 animate-spin" />
         ) : (
-          'Sign in with e-mail'
+          'Create account'
         )}
       </Button>
       <Button asChild className="w-full" size="sm" variant="link">
-        <Link href="/auth/sign-up">Create new account</Link>
+        <Link href="/auth/sign-in">Already registered? Sing in</Link>
       </Button>
       <Separator />
       <Button
@@ -88,7 +105,7 @@ export function SignInForm() {
         variant="outline"
       >
         <Image alt="" className="mr-2 size-4 dark:invert" src={GithubIcon} />
-        Sign in with Github
+        Sign up with Github
       </Button>
     </form>
   )

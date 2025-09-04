@@ -1156,6 +1156,8 @@ __metadata:
     "@radix-ui/react-label": "npm:^2.1.7"
     "@radix-ui/react-separator": "npm:^1.1.7"
     "@radix-ui/react-slot": "npm:^1.2.3"
+    "@saas/auth": "npm:*"
+    "@saas/env": "npm:*"
     "@saas/eslint-config": "npm:*"
     "@saas/prettier": "npm:*"
     "@saas/tsconfig": "npm:*"
@@ -1165,6 +1167,8 @@ __metadata:
     "@types/react-dom": "npm:^19"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
+    cookies-next: "npm:^6.1.0"
+    dotenv-cli: "npm:^10.0.0"
     ky: "npm:^1.9.1"
     lucide-react: "npm:^0.542.0"
     next: "npm:15.5.2"
@@ -2255,6 +2259,18 @@ __metadata:
   version: 1.0.2
   resolution: "cookie@npm:1.0.2"
   checksum: 10c0/fd25fe79e8fbcfcaf6aa61cd081c55d144eeeba755206c058682257cb38c4bd6795c6620de3f064c740695bb65b7949ebb1db7a95e4636efb8357a335ad3f54b
+  languageName: node
+  linkType: hard
+
+"cookies-next@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "cookies-next@npm:6.1.0"
+  dependencies:
+    cookie: "npm:^1.0.1"
+  peerDependencies:
+    next: ">=15.0.0"
+    react: ">= 16.8.0"
+  checksum: 10c0/1af0dba68e6f87c060c04d7588b2b70c06af890bb4499eb96da564f4bb0881296ab7aa32075f9afdf53bc311362b087b32d04e3719c34de0b560bee7add16890
   languageName: node
   linkType: hard
 
