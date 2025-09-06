@@ -38,7 +38,7 @@ export async function ProfileButton() {
         </Avatar>
         <ChevronDown className="text-muted-foreground size-4" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" sideOffset={8}>
         <DropdownMenuItem asChild>
           <a href="/api/auth/sign-out">
             <LogOut className="mr-2 size-4" />
