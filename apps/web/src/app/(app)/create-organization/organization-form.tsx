@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label'
 
 import { createOrganizationAction } from './actions'
 
-export default function OrganizationForm() {
+export function OrganizationForm() {
   const [{ success, message, errors, payload }, formAction, isPending] =
     useActionState(createOrganizationAction, {
       success: false,

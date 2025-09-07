@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { ability } from '@/auth/auth'
 import { Header } from '@/components/header'
 
-import ProjectForm from './project-form'
+import { ProjectForm } from './project-form'
 
 export default async function CreateProject() {
   const permissions = await ability()

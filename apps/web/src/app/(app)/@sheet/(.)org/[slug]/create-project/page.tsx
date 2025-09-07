@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import { OrganizationForm } from '@/app/(app)/create-organization/organization-form'
+import { ProjectForm } from '@/app/(app)/org/[slug]/create-project/project-form'
 import {
   Sheet,
   SheetContent,
@@ -10,7 +10,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet'
 
-export default function CreateOrganization() {
+export default function CreateProject() {
   const router = useRouter()
 
   return (
@@ -22,10 +22,10 @@ export default function CreateOrganization() {
     >
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Create organization</SheetTitle>
+          <SheetTitle>Create project</SheetTitle>
         </SheetHeader>
         <div className="px-4">
-          <OrganizationForm />
+          <ProjectForm />
         </div>
       </SheetContent>
     </Sheet>

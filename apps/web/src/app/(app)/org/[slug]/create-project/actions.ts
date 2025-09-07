@@ -10,9 +10,7 @@ const schema = z.object({
   name: z
     .string()
     .min(4, { message: 'Please, include at least 4 characters.' }),
-  description: z
-    .string()
-    .min(4, { message: 'Please, include a description text.' }),
+  description: z.string(),
 })
 
 export async function createProjectAction(_: unknown, data: FormData) {
