@@ -1,11 +1,10 @@
-import { Avatar } from '@radix-ui/react-avatar'
 import { ChevronsUpDown, PlusCircle } from 'lucide-react'
 import Link from 'next/link'
 
 import { getCurrentOrg } from '@/auth/auth'
 import { getOrganizations } from '@/http/get-organizations'
 
-import { AvatarFallback, AvatarImage } from './ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,7 +29,7 @@ export async function OrganizationSwitcher() {
       <DropdownMenuTrigger className="focus-visible:ring-primary flex w-[168px] cursor-pointer items-center gap-2 rounded p-1 text-sm font-medium outline-none focus-visible:ring-2">
         {currentOrganization ? (
           <>
-            <Avatar className="size-4 overflow-hidden rounded-full">
+            <Avatar className="size-4">
               {currentOrganization.avatarUrl && (
                 <AvatarImage alt="logo" src={currentOrganization.avatarUrl} />
               )}
@@ -60,7 +59,7 @@ export async function OrganizationSwitcher() {
                   className="cursor-pointer"
                   href={`/org/${organization.slug}`}
                 >
-                  <Avatar className="size-4 overflow-hidden rounded-full">
+                  <Avatar className="size-4">
                     {organization.avatarUrl && (
                       <AvatarImage alt="logo" src={organization.avatarUrl} />
                     )}
