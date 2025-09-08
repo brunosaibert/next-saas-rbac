@@ -2,13 +2,14 @@
 
 import { useRouter } from 'next/navigation'
 
-import { OrganizationForm } from '@/app/(app)/create-organization/organization-form'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
+
+import { OrganizationForm } from '../../org/organization-form'
 
 export default function CreateOrganization() {
   const router = useRouter()

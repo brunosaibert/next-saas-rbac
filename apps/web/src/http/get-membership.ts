@@ -11,8 +11,10 @@ interface GetMembershipResponse {
   }
 }
 
-export function getMembership(org: string) {
-  return api
+export async function getMembership(org: string) {
+  const result = await api
     .get(`organizations/${org}/membership`)
     .json<GetMembershipResponse>()
+
+  return result
 }

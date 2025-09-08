@@ -9,6 +9,8 @@ interface GetOrganizationsResponse {
   }[]
 }
 
-export function getOrganizations() {
-  return api.get('organizations').json<GetOrganizationsResponse>()
+export async function getOrganizations() {
+  const result = await api.get('organizations').json<GetOrganizationsResponse>()
+
+  return result
 }
