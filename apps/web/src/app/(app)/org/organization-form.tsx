@@ -9,19 +9,31 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
-import { createOrganizationAction } from '../create-organization/actions'
+import {
+  createOrganizationAction,
+  OrganizationSchema,
+  updateOrganizationAction,
+} from './actions'
 
-export function OrganizationForm() {
+interface OrganizationFormProps {
+  isUpdating?: boolean
+  initialData?: OrganizationSchema
+}
+
+export function OrganizationForm({
+  isUpdating = false,
+  initialData = { name: '', domain: '', shouldAttachUsersByDomain: false },
+}: OrganizationFormProps) {
+  const selectedFormAction = isUpdating
+    ? updateOrganizationAction
+    : createOrganizationAction
+
   const [{ success, message, errors, payload }, formAction, isPending] =
-    useActionState(createOrganizationAction, {
+    useActionState(selectedFormAction, {
       success: false,
       message: null,
       errors: null,
-      payload: {
-        name: '',
-        domain: '',
-        shouldAttachUsersByDomain: false,
-      },
+      payload: initialData,
     })
 
   return (
@@ -29,7 +41,9 @@ export function OrganizationForm() {
       {success === false && message && (
         <Alert variant="destructive">
           <AlertTriangle className="size-4" />
-          <AlertTitle>Save organization failed!</AlertTitle>
+          <AlertTitle>
+            {isUpdating ? 'Update' : 'Save'} organization failed!
+          </AlertTitle>
           <AlertDescription>{message}</AlertDescription>
         </Alert>
       )}
@@ -68,6 +82,7 @@ export function OrganizationForm() {
         <div className="flex items-baseline space-x-2">
           <Checkbox
             className="translate-y-0.5"
+            defaultChecked={!!payload?.shouldAttachUsersByDomain}
             id="shouldAttachUsersByDomain"
             name="shouldAttachUsersByDomain"
           />

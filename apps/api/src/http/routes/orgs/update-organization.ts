@@ -58,7 +58,7 @@ export async function updateOrganization(app: FastifyInstance) {
           const organizationByDomain = await prisma.organization.findFirst({
             where: {
               domain,
-              slug: {
+              id: {
                 not: organization.id,
               },
             },
