@@ -95,7 +95,7 @@ export default async function MemberList() {
                             type="submit"
                             variant="destructive"
                           >
-                            <UserMinus className="mr-2 size-4" />
+                            <UserMinus className="size-4" />
                             Remove
                           </Button>
                         </form>
