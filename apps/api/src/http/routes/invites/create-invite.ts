@@ -53,14 +53,14 @@ export async function createInvite(app: FastifyInstance) {
 
         const { email, role } = request.body
 
-        const [, domain] = email
+        const [, domain] = email.split('@')
 
         if (
           organization.shouldAttachUsersByDomain &&
           organization.domain === domain
         ) {
           throw new BadRequestError(
-            `Users with "${organization.domain}" domain will join your organizatio automatically on login.`,
+            `Users with "${organization.domain}" domain will join your organization automatically on login.`,
           )
         }
 
