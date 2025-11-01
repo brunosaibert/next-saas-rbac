@@ -6,7 +6,9 @@
     "dev": "yarn env:load tsx watch src/http/server.ts",
     "db:migrate": "yarn env:load prisma migrate dev",
     "db:studio": "yarn env:load prisma studio",
-    "env:load": "dotenv -e ../../.env --"
+    "env:load": "dotenv -e ../../.env --",
+    "build": "tsc",
+    "start": "node dist/http/server.js"
   },
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
@@ -31,6 +33,7 @@
     "@types/node": "^24.3.0",
     "dotenv-cli": "^10.0.0",
     "prisma": "^6.14.0",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.4"
   },
   "prisma": {
