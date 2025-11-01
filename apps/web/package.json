@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn env:load next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "dev": "yarn env:load next dev --turbo",
+    "build": "npm run env:load next build --turbo",
+    "start": "npm run env:load next start --turbo",
     "env:load": "dotenv -e ../../.env --"
   },
   "dependencies": {
