@@ -12,10 +12,14 @@ import { Separator } from '@/components/ui/separator'
 import { acceptInvite } from '@/http/accept-invite'
 import { getInvite } from '@/http/get-invite'
 
+interface InviteProps {
+  params: Promise<{ id: string }>
+}
+
 dayjs.extend(relativeTime)
 
-export default async function Invite({ params }: { params: { id: string } }) {
-  const inviteId = params.id
+export default async function Invite({ params }: InviteProps) {
+  const { id: inviteId } = await params
 
   const { invite } = await getInvite(inviteId)
 
